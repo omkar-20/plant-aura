@@ -1,0 +1,39 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} login {% endblock %}
+{% block css %}
+
+
+body{
+    background-image:url('https://images.unsplash.com/photo-1497990571654-77aa8ec36038?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=852&q=80');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.errorlist li{
+    color:red;
+}
+
+
+
+{% endblock %}
+{% block body %} 
+ <main class="container my-4">
+    <h3 class="my-4 border-bottom pb-1">Login</h3>
+    <div class="row">
+        <table class="table table-bordered" >
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_table}}
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Login" class="btn btn-success"/>
+                    </td>
+                </tr>
+            </form>
+        </table>
+        <p>If you are not registered,Please <a href="{% url 'signup' %}" >Signup here</a></p>
+    </div>    
+
+ </main>
+{% endblock %}
